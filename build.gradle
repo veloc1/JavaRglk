@@ -1,0 +1,12 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'me.veloc1.rglk.Main'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // compile "com.google.code.gson:gson:2.8.0"
+}

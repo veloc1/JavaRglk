@@ -1,0 +1,8 @@
+build
+*.swp
+gradle/
+.gradle/
+log.txt
+.idea
+reports
+local.properties
