@@ -3,10 +3,14 @@ apply plugin: 'application'
 
 mainClassName = 'me.veloc1.rglk.Main'
 
+run {
+    standardInput = System.in
+}
+
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    // compile "com.google.code.gson:gson:2.8.0"
+    compile group: 'net.java.dev.jna', name: 'jna', version: '4.2.2'
 }
