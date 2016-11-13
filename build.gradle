@@ -7,6 +7,13 @@ run {
     standardInput = System.in
 }
 
+// not working yet
+task play(type:Exec) {
+    workingDir 'build/install/JavaRglk/bin/'
+
+    executable 'JavaRglk.bat'
+}
+
 repositories {
     mavenCentral()
 }

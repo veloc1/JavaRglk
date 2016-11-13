@@ -11,7 +11,7 @@
 //
 // Home page: http://www.source-code.biz/snippets/java/RawConsoleInput
 
-package me.veloc1.rglk;
+package me.veloc1.rglk.platform.console.input;
 
 import java.io.InputStream;
 import java.io.IOException;
