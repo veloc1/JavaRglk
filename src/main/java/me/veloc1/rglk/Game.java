@@ -1,11 +1,15 @@
 package me.veloc1.rglk;
 
+import dagger.Component;
+import me.veloc1.rglk.di.GameModule;
 import me.veloc1.rglk.game.Commands;
 import me.veloc1.rglk.game.World;
 import me.veloc1.rglk.input.GameInput;
 import me.veloc1.rglk.output.GameOutput;
 import me.veloc1.rglk.platform.console.input.ConsoleInput;
 import me.veloc1.rglk.platform.console.output.ConsoleOutput;
+
+import javax.inject.Inject;
 
 public class Game {
 
@@ -14,11 +18,12 @@ public class Game {
     private GameOutput mOutput;
     private World mWorld;
 
-    public Game() {
+    @Inject
+    public Game(GameInput input, GameOutput output) {
         mIsStarted = true;
         mWorld = new World();
-        mOutput = new ConsoleOutput();
-        mInput = new ConsoleInput();
+        mInput = input;
+        mOutput = output;
     }
 
     public void run() {

@@ -1,35 +1,61 @@
 package me.veloc1.rglk.game;
 
+import dagger.Component;
+import me.veloc1.rglk.Game;
+import me.veloc1.rglk.di.GameModule;
+import me.veloc1.rglk.di.WorldModule;
+import me.veloc1.rglk.game.map.Map;
+
 import java.util.ArrayList;
 
 public class World {
 
-    private Map mMap;
+    @Component(modules = {WorldModule.class})
+    public interface WorldDi {
+        Map map();
+    }
+
+    private Map                   mMap;
     private ArrayList<BaseObject> mObjects;
 
     public World() {
-        mMap = new Map();
+        mMap = DaggerWorld_WorldDi.builder().build().map();
         mObjects = new ArrayList<>();
 
         BaseObject player = new BaseObject();
         player.character = '@';
+        player.x = 3;
+        player.y = 3;
         mObjects.add(player);
     }
 
     public void update(int command) {
         switch (command) {
             case Commands.UP:
-                mObjects.get(0).y -= 1;
+                objectIntentsToMove(mObjects.get(0), 0, -1);
+//                mObjects.get(0).y -= 1;
                 break;
             case Commands.DOWN:
-                mObjects.get(0).y += 1;
+                objectIntentsToMove(mObjects.get(0), 0, 1);
+//                mObjects.get(0).y += 1;
                 break;
             case Commands.LEFT:
-                mObjects.get(0).x -= 1;
+                objectIntentsToMove(mObjects.get(0), -1, 0);
+//                mObjects.get(0).x -= 1;
                 break;
             case Commands.RIGHT:
-                mObjects.get(0).x += 1;
+                objectIntentsToMove(mObjects.get(0), 1, 0);
+//                mObjects.get(0).x += 1;
                 break;
+        }
+    }
+
+    private void objectIntentsToMove(BaseObject object, int x, int y) {
+        if (mMap.getTileAt(object.x + x, object.y + y).isBlock){
+            return;
+        } else {
+            object.x += x;
+            object.y += y;
         }
     }
 
