@@ -5,8 +5,8 @@ import me.veloc1.rglk.game.map.Tile;
 public class SimpleRoomGenerator implements MapGenerator {
     @Override
     public Tile[][] generate() {
-        int width = 15;
-        int height = 7;
+        int      width  = 48;
+        int      height = 24;
         Tile[][] result = new Tile[width][height];
 
         for (int i = 0; i < result.length; i++) {

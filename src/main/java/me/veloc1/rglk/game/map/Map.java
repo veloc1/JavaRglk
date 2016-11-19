@@ -14,7 +14,7 @@ public class Map {
     }
 
     public char getCharAtPosition(int x, int y) {
-        if (x >= mTiles.length || y >= mTiles[0].length){
+        if (x >= mTiles.length || y >= mTiles[0].length) {
             return ' ';
         }
         return mTiles[x][y].character;
@@ -22,5 +22,13 @@ public class Map {
 
     public Tile getTileAt(int x, int y) {
         return mTiles[x][y];
+    }
+
+    public int getWidth() {
+        return mTiles.length;
+    }
+
+    public int getHeight() {
+        return mTiles[0].length;
     }
 }
