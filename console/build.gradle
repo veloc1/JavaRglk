@@ -1,0 +1,25 @@
+plugins {
+    id "net.ltgt.apt" version "0.5"
+}
+
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'idea'
+
+mainClassName = 'me.veloc1.rglkconsole.Main'
+
+run {
+    standardInput = System.in
+}
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    apt group: 'com.google.dagger', name: 'dagger-compiler', version: '2.2'
+    compile group: 'net.java.dev.jna', name: 'jna', version: '4.2.2'
+    compile group: 'com.google.dagger', name: 'dagger', version: '2.2'
+    compile project(':game')
+}

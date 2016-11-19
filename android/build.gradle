@@ -1,0 +1,43 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.0-alpha1'
+    }
+}
+
+plugins {
+    id "net.ltgt.apt" version "0.5"
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'idea'
+
+android {
+    buildToolsVersion "25.0.0"
+
+    compileSdkVersion 25
+
+    defaultConfig {
+        applicationId 'me.veloc1.rglkandr'
+        minSdkVersion 14
+        targetSdkVersion 25
+        versionCode 1
+        versionName '0.1'
+    }
+
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+//    apt group: 'com.google.dagger', name: 'dagger-compiler', version: '2.2'
+    compile group: 'net.java.dev.jna', name: 'jna', version: '4.2.2'
+    compile group: 'com.google.dagger', name: 'dagger', version: '2.2'
+    provided group: 'com.google.dagger', name: 'dagger-compiler', version: '2.2'
+    compile project(':game')
+}
