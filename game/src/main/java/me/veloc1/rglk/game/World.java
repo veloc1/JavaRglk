@@ -31,8 +31,7 @@ public class World {
         mObjects = new ArrayList<>();
 
         BaseObject player = new Player(this);
-        player.x = 3;
-        player.y = 3;
+        mMap.placePlayer(player);
         mObjects.add(player);
 
         for (int i = 0; i < 5; i++) {
@@ -62,7 +61,7 @@ public class World {
     }
 
     public void objectIntentsToMove(BaseObject object, int x, int y) {
-        if (mMap.getTileAt(object.x + x, object.y + y).isBlock) {
+        if (!mMap.isInRange(object.x + x, object.y + y) || mMap.getTileAt(object.x + x, object.y + y).isBlock) {
             return;
         } else {
             for (BaseObject other : mObjects) {

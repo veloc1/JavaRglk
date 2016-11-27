@@ -23,6 +23,8 @@ public class SimpleRoomGenerator implements MapGenerator {
             }
         }
 
+        result[3][4].isStartPosition = true;
+
         return result;
     }
 }

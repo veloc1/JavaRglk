@@ -15,8 +15,8 @@ public class ConsoleOutput implements GameOutput {
     private int mOffsetY;
 
     public ConsoleOutput() {
-        mConsoleWidth = 40;
-        mConsoleHeight = 20;
+        mConsoleWidth = 78;
+        mConsoleHeight = 23; // windows cmd
         mOffsetX = 0;
         mOffsetY = 0;
     }

@@ -6,5 +6,6 @@ public class Tile {
     public int     y;
     public char    character;
     public boolean isBlock;
+    public boolean isStartPosition;
 
 }
